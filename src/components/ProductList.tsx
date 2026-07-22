@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { addToCart } from '../store/slices/cartSlice'
 import { useAppDispatch } from '../store'
 import type { Product } from '../types'
+import { ProductDetail } from './ProductDetail'
 import { ProductImage } from './ProductImage'
 
 type ProductListProps = {
@@ -25,6 +27,7 @@ export function ProductList({
   onCategoryChange,
 }: ProductListProps) {
   const dispatch = useAppDispatch()
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
   const isFiltering =
     searchTerm.trim().length > 0 || selectedCategory !== 'all'
 
@@ -34,7 +37,8 @@ export function ProductList({
         <div>
           <h2 className="text-xl font-semibold text-stone-900">상품 목록</h2>
           <p className="mt-1 text-sm text-stone-500">
-            상품명 검색과 카테고리로 목록을 좁힐 수 있습니다.
+            상품명 검색과 카테고리로 목록을 좁힐 수 있습니다. 상세를 눌러
+            설명을 확인하세요.
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
@@ -91,18 +95,33 @@ export function ProductList({
                   {product.title}
                 </h3>
                 <p className="text-stone-600">{formatPrice(product.price)}</p>
-                <button
-                  type="button"
-                  onClick={() => dispatch(addToCart(product.id))}
-                  className="mt-auto rounded-md bg-stone-900 px-3 py-2 text-sm font-medium text-white hover:bg-stone-700"
-                >
-                  담기
-                </button>
+                <div className="mt-auto flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedProduct(product)}
+                    className="flex-1 rounded-md border border-stone-300 px-3 py-2 text-sm font-medium text-stone-800 hover:bg-stone-100"
+                  >
+                    상세
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => dispatch(addToCart(product.id))}
+                    className="flex-1 rounded-md bg-stone-900 px-3 py-2 text-sm font-medium text-white hover:bg-stone-700"
+                  >
+                    담기
+                  </button>
+                </div>
               </div>
             </li>
           ))}
         </ul>
       )}
+      {selectedProduct ? (
+        <ProductDetail
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      ) : null}
     </section>
   )
 }

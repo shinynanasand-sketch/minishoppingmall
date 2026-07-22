@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { AuthBar } from './components/AuthBar'
 import { AuthListener } from './components/AuthListener'
 import { Cart } from './components/Cart'
+import { CartBadge } from './components/CartBadge'
 import { ProductList } from './components/ProductList'
 import { mockProducts } from './data/products'
 import { useAppSelector } from './store'
@@ -92,13 +93,16 @@ function App() {
         </div>
       ) : (
         <div className="mx-auto max-w-5xl px-4 py-8">
-          <header className="mb-6">
-            <h1 className="text-2xl font-bold text-stone-900">
-              미니 이커머스 장바구니
-            </h1>
-            <p className="mt-1 text-stone-600">
-              Google로 로그인하고, 전역 장바구니에 상품을 담아 보세요.
-            </p>
+          <header className="mb-6 flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h1 className="text-2xl font-bold text-stone-900">
+                미니 이커머스 장바구니
+              </h1>
+              <p className="mt-1 text-stone-600">
+                Google로 로그인하고, 전역 장바구니에 상품을 담아 보세요.
+              </p>
+            </div>
+            <CartBadge />
           </header>
 
           <div className="mb-6">

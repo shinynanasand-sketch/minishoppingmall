@@ -26,7 +26,10 @@ export function Cart({ products }: CartProps) {
   const totalPrice = useAppSelector((state) => selectTotalPrice(state, products))
 
   return (
-    <section className="rounded-lg border border-stone-200 bg-white p-4">
+    <section
+      id="cart"
+      className="scroll-mt-8 rounded-lg border border-stone-200 bg-white p-4"
+    >
       <div className="mb-4 flex items-center justify-between gap-2">
         <h2 className="text-xl font-semibold text-stone-900">
           장바구니

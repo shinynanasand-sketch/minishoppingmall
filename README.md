@@ -31,7 +31,7 @@ FakeStore API 상품 · Redux Toolkit 전역 장바구니 · Firebase Google 인
 | 전역 상태 | Redux Toolkit + React Redux (`cartSlice`, `authSlice`) |
 | 인증 | Firebase Authentication (Google) |
 | TypeScript | 사용 (`Product`, `CartItem`, `AuthUser`) |
-| 도전·확장 | 상품명 검색, 카테고리 필터, LocalStorage cart 영속화 |
+| 도전·확장 | 상품명 검색, 카테고리 필터, LocalStorage cart, 상품 상세 모달, 헤더 수량 배지 |
 
 ---
 
@@ -205,9 +205,8 @@ Firebase Console에서 **Authentication → Google** 제공자를 사용 설정�
 ## 한계 · 다음 개선
 
 - 사용자별 장바구니 DB 저장은 없음 (게스트 cart는 LocalStorage로 유지)
-- 상품 상세 페이지 없음
 - Firebase 미설정 시 로그인만 비활성 (상품·cart는 동작)
-- 다음: 상품 상세·접근성 보강·E2E 테스트
+- 다음: 접근성 보강·E2E 테스트
 
 ---
 
