@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "capture": "node scripts/capture-screens.mjs",
-    "smoke:auth": "node scripts/smoke-auth.mjs"
+    "smoke:auth": "node scripts/smoke-auth.mjs",
+    "deploy": "npm run build && npx --yes firebase-tools@latest deploy --only hosting --project miniexerciseproject"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",

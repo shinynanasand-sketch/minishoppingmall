@@ -112,6 +112,17 @@ npm run dev
 npm run build
 ```
 
+배포 (Firebase Hosting):
+
+```bash
+npm run deploy
+```
+
+배포 URL: https://miniexerciseproject.web.app  
+
+Google 로그인이 배포 도메인에서 실패하면 Console → Authentication → Settings → Authorized domains에  
+`miniexerciseproject.web.app` · `miniexerciseproject.firebaseapp.com` 이 있는지 확인하세요.
+
 테스트:
 
 ```bash
@@ -203,6 +214,7 @@ Firebase Console에서 **Authentication → Google** 제공자를 사용 설정�
 ## 제출 URL
 
 - GitHub: https://github.com/shinynanasand-sketch/minishoppingmall
+- 배포: https://miniexerciseproject.web.app
 - `.env`는 커밋하지 않음 (`.gitignore`)
 
 ---
