@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "providers": {
+      "googleSignIn": {
+        "oAuthBrandDisplayName": "MiniExerciseProject",
+        "supportEmail": "shinynanasand@gmail.com"
+      }
+    }
+  }
+}
